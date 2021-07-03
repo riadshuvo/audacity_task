@@ -1,3 +1,4 @@
+import 'package:audacity_task/home_page/ui/widgets/trending_products/trending_products.dart';
 import 'package:audacity_task/home_page/ui/widgets/trending_sellers/trensing_sellers.dart';
 import 'package:audacity_task/utility/colors.dart';
 import 'package:audacity_task/utility/common_test_class.dart';
@@ -27,26 +28,62 @@ class _MyHomePageState extends State<MyHomePage> {
                   width: appSize.width,
                   child: Card(
                     elevation: 2,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.only(left: 4.0),
-                          child: CommonTextClass(
-                            text: "Trending Sellers",
-                            fontWeight: FontWeight.w600,
-                            fontSize: 16,
-                            color: blackColor,
-                            isCentre: false,
+                    child: Container(
+                      margin: EdgeInsets.symmetric(vertical: 6),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.only(left: 4.0),
+                            child: CommonTextClass(
+                              text: "Trending Sellers",
+                              fontWeight: FontWeight.w600,
+                              fontSize: 16,
+                              color: blackColor,
+                              isCentre: false,
+                            ),
                           ),
-                        ),
-                        SingleChildScrollView(
-                            scrollDirection: Axis.horizontal,
-                            child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: List.generate(10, (index) => TrendingSellers(),),
-                            )),
-                      ],
+                          SingleChildScrollView(
+                              scrollDirection: Axis.horizontal,
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: List.generate(10, (index) => TrendingSellers(),),
+                              )),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+
+                SizedBox(height: 4,),
+
+                Container(
+                  width: appSize.width,
+                  child: Card(
+                    elevation: 2,
+                    child: Container(
+                      margin: EdgeInsets.symmetric(vertical: 6),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.only(left: 4.0),
+                            child: CommonTextClass(
+                              text: "Trending Products",
+                              fontWeight: FontWeight.w600,
+                              fontSize: 16,
+                              color: blackColor,
+                              isCentre: false,
+                            ),
+                          ),
+                          SingleChildScrollView(
+                              scrollDirection: Axis.horizontal,
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: List.generate(10, (index) => TrendingProducts(),),
+                              )),
+                        ],
+                      ),
                     ),
                   ),
                 )
