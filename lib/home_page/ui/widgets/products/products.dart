@@ -6,6 +6,7 @@ import 'package:audacity_task/utility/text_style.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:shimmer/shimmer.dart';
 
 class ProductsUi extends StatelessWidget {
   final ProductsModel? productsModel;
@@ -96,7 +97,15 @@ class ProductsUi extends StatelessWidget {
               margin: EdgeInsets.symmetric( vertical: 4, horizontal: 4),
               child: CachedNetworkImage(
                 imageUrl: productsModel?.storyImage ?? "",
-                placeholder: (context, url) => CupertinoActivityIndicator(),
+                placeholder: (context, url) => SizedBox(
+                  width: appSize.width,
+                  height: 100.0,
+                  child: Shimmer.fromColors(
+                    baseColor: Colors.grey.withOpacity(0.7),
+                    highlightColor: Colors.grey.withOpacity(0.1),
+                    child: Text(''),
+                  ),
+                ),
                 errorWidget: (context, url, error) => Icon(Icons.error),
               ),
 

@@ -23,8 +23,8 @@ class _ShimmerWidgetState extends State {
           padding: EdgeInsets.all(25.0),
           child: Center(
             child: Shimmer.fromColors(
-              baseColor: Colors.grey.withOpacity(7),
-              highlightColor: Colors.grey.withOpacity(1),
+              baseColor: Colors.grey.withOpacity(0.7),
+              highlightColor: Colors.grey.withOpacity(0.1),
                 direction: ShimmerDirection.ltr,
                 period: Duration(seconds: 5),
                 child: Column(
