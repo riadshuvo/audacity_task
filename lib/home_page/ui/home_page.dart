@@ -55,7 +55,6 @@ class _MyHomePageState extends State<MyHomePage> {
                       ));
                 }
                 if (state is HomeBlocSuccess) {
-
                   return SingleChildScrollView(
                     child: Container(
                       width: appSize.width,
@@ -99,7 +98,10 @@ class _MyHomePageState extends State<MyHomePage> {
                                         scrollDirection: Axis.horizontal,
                                         child: Row(
                                           crossAxisAlignment: CrossAxisAlignment.start,
-                                          children: List.generate(10, (index) => TrendingSellers(),),
+                                          children: List.generate(state.trendingList!.first.length,
+                                                (index) => TrendingSellers(
+                                                    trendingSellerModel: state.trendingList!.first[index]
+                                                ),),
                                         )),
                                   ],
                                 ),
@@ -143,7 +145,10 @@ class _MyHomePageState extends State<MyHomePage> {
                                         scrollDirection: Axis.horizontal,
                                         child: Row(
                                           crossAxisAlignment: CrossAxisAlignment.start,
-                                          children: List.generate(10, (index) => TrendingProducts(),),
+                                          children: List.generate(state.trendingProductList!.first.length,
+                                                (index) => TrendingProducts(
+                                                  trendingProducts: state.trendingProductList!.first[index],
+                                                ),),
                                         )),
                                   ],
                                 ),
@@ -200,7 +205,10 @@ class _MyHomePageState extends State<MyHomePage> {
                                         scrollDirection: Axis.horizontal,
                                         child: Row(
                                           crossAxisAlignment: CrossAxisAlignment.start,
-                                          children: List.generate(10, (index) => NewArrivals(),),
+                                          children: List.generate(state.newArrivalList!.first.length,
+                                                (index) => NewArrivals(
+                                                    newArrivalsModel:state.newArrivalList!.first[index]
+                                          ),),
                                         )),
                                   ],
                                 ),
@@ -257,7 +265,10 @@ class _MyHomePageState extends State<MyHomePage> {
                                         scrollDirection: Axis.horizontal,
                                         child: Row(
                                           crossAxisAlignment: CrossAxisAlignment.start,
-                                          children: List.generate(10, (index) => NewShops(),),
+                                          children: List.generate(state.newShopList!.first.length,
+                                                (index) => NewShops(
+                                                    newShops:state.newShopList!.first[index]
+                                                ),),
                                         )),
                                   ],
                                 ),

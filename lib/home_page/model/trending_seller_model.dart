@@ -56,7 +56,11 @@ class TrendingSellerModel {
   TrendingSellerModel.fromJson(Map<String, dynamic> json) {
     slNo = json['slNo'];
     sellerName = json['sellerName'];
-    sellerProfilePhoto = json['sellerProfilePhoto'];
+    if(json['sellerProfilePhoto'] == null){
+      sellerProfilePhoto = 'https://coolbackgrounds.io/images/backgrounds/white/white-radial-gradient-a5802da1.jpg';
+    }else{
+      sellerProfilePhoto = json['sellerProfilePhoto'];
+    }
     sellerItemPhoto = json['sellerItemPhoto'];
     ezShopName = json['ezShopName'];
     defaultPushScore = json['defaultPushScore'];

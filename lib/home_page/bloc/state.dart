@@ -2,7 +2,7 @@
 import 'package:audacity_task/home_page/model/newArrivals_model.dart';
 import 'package:audacity_task/home_page/model/newShops_model.dart';
 import 'package:audacity_task/home_page/model/products_model.dart';
-import 'package:audacity_task/home_page/model/trending_products.dart';
+import 'package:audacity_task/home_page/model/trending_products_model.dart';
 import 'package:audacity_task/home_page/model/trending_seller_model.dart';
 import 'package:flutter/cupertino.dart';
 

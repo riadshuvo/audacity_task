@@ -1,3 +1,4 @@
+import 'package:audacity_task/home_page/model/newArrivals_model.dart';
 import 'package:audacity_task/utility/colors.dart';
 import 'package:audacity_task/utility/common_test_class.dart';
 import 'package:audacity_task/utility/text_style.dart';
@@ -5,6 +6,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class NewArrivals extends StatelessWidget {
+  final NewArrivalsModel? newArrivalsModel;
+  NewArrivals({this.newArrivalsModel});
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +29,9 @@ class NewArrivals extends StatelessWidget {
                   height: 160,
                   width: 130,
                   decoration: BoxDecoration(
-                      color: Colors.blue,
+                      image: DecorationImage(
+                          image: NetworkImage(newArrivalsModel?.productImage ?? "",),
+                          fit: BoxFit.fill),
                       borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(8),
                           topRight: Radius.circular(8))
@@ -36,7 +41,7 @@ class NewArrivals extends StatelessWidget {
                   color: whiteColor,
                   width: 130,
                   padding: EdgeInsets.only(top: 4),
-                  child: Text("NewArrivals products title",
+                  child: Text(newArrivalsModel?.productName ?? "",
                     overflow: TextOverflow.ellipsis,
                     textAlign: TextAlign.center,
                     style: commonPoppinsTextStyle(
@@ -50,7 +55,7 @@ class NewArrivals extends StatelessWidget {
                   color: whiteColor,
                   padding: EdgeInsets.only(top: 4),
                   child: CommonTextClass(
-                    text: "NewArrivals products price",
+                    text: "price: BDT ${newArrivalsModel?.unitPrice}",
                     fontWeight: FontWeight.w300,
                     fontSize: 10,
                     color: blackColor,

@@ -1,9 +1,12 @@
+import 'package:audacity_task/home_page/model/newShops_model.dart';
 import 'package:audacity_task/utility/colors.dart';
 import 'package:audacity_task/utility/common_test_class.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class NewShops extends StatelessWidget {
+  final NewShopsModel? newShops;
+  NewShops({this.newShops});
 
   @override
   Widget build(BuildContext context) {
@@ -15,8 +18,10 @@ class NewShops extends StatelessWidget {
             height: 190,
             width: 130,
             decoration: BoxDecoration(
-                color: Colors.green,
-                borderRadius: BorderRadius.circular(8)
+                borderRadius: BorderRadius.circular(8),
+                image: DecorationImage(
+                    image: NetworkImage(newShops?.sellerItemPhoto ?? ""),
+                    fit: BoxFit.cover)
             ),
           ),
           Positioned(
@@ -26,8 +31,9 @@ class NewShops extends StatelessWidget {
               height: 30,
               width: 30,
               decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: Colors.blue,
+                  shape: BoxShape.circle,
+                  image: DecorationImage(
+                      image: NetworkImage(newShops?.sellerProfilePhoto ?? ""))
               ),
             ),
           ),
@@ -38,7 +44,7 @@ class NewShops extends StatelessWidget {
             child: Container(
               color: trendingTitleColor.withOpacity(0.3),
               child: CommonTextClass(
-                text: "NewShops Sellers status",
+                text: newShops?.sellerName ?? "",
                 fontWeight: FontWeight.w300,
                 fontSize: 12,
                 color: whiteColor,

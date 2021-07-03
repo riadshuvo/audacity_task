@@ -1,9 +1,12 @@
+import 'package:audacity_task/home_page/model/trending_seller_model.dart';
 import 'package:audacity_task/utility/colors.dart';
 import 'package:audacity_task/utility/common_test_class.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class TrendingSellers extends StatelessWidget {
+  final TrendingSellerModel? trendingSellerModel;
+  TrendingSellers({this.trendingSellerModel});
 
   @override
   Widget build(BuildContext context) {
@@ -15,8 +18,10 @@ class TrendingSellers extends StatelessWidget {
             height: 190,
             width: 130,
             decoration: BoxDecoration(
-                color: Colors.green,
-                borderRadius: BorderRadius.circular(8)
+                borderRadius: BorderRadius.circular(8),
+                image: DecorationImage(
+                    image: NetworkImage(trendingSellerModel?.sellerItemPhoto ?? ""),
+                    fit: BoxFit.cover)
             ),
           ),
           Positioned(
@@ -27,7 +32,8 @@ class TrendingSellers extends StatelessWidget {
               width: 30,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: Colors.blue,
+                  image: DecorationImage(
+                      image: NetworkImage(trendingSellerModel?.sellerProfilePhoto ?? ""))
               ),
             ),
           ),
@@ -38,7 +44,7 @@ class TrendingSellers extends StatelessWidget {
             child: Container(
               color: trendingTitleColor.withOpacity(0.3),
               child: CommonTextClass(
-                text: "Trending Sellers status",
+                text: trendingSellerModel?.sellerName ?? "",
                 fontWeight: FontWeight.w300,
                 fontSize: 12,
                 color: whiteColor,
