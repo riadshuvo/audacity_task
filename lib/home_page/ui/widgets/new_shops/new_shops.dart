@@ -1,6 +1,7 @@
 import 'package:audacity_task/home_page/model/newShops_model.dart';
 import 'package:audacity_task/utility/colors.dart';
 import 'package:audacity_task/utility/common_test_class.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +21,7 @@ class NewShops extends StatelessWidget {
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8),
                 image: DecorationImage(
-                    image: NetworkImage(newShops?.sellerItemPhoto ?? ""),
+                    image: CachedNetworkImageProvider(newShops?.sellerItemPhoto ?? ""),
                     fit: BoxFit.cover)
             ),
           ),
@@ -33,7 +34,7 @@ class NewShops extends StatelessWidget {
               decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   image: DecorationImage(
-                      image: NetworkImage(newShops?.sellerProfilePhoto ?? ""))
+                      image: CachedNetworkImageProvider(newShops?.sellerProfilePhoto ?? ""))
               ),
             ),
           ),

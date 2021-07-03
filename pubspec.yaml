@@ -32,6 +32,8 @@ dependencies:
   google_fonts:
   flutter_bloc:
   path_provider:
+  cached_network_image:
+  shimmer:
 
 dev_dependencies:
   flutter_test:

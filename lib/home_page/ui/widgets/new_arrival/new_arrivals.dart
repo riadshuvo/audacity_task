@@ -2,6 +2,7 @@ import 'package:audacity_task/home_page/model/newArrivals_model.dart';
 import 'package:audacity_task/utility/colors.dart';
 import 'package:audacity_task/utility/common_test_class.dart';
 import 'package:audacity_task/utility/text_style.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -30,7 +31,7 @@ class NewArrivals extends StatelessWidget {
                   width: 130,
                   decoration: BoxDecoration(
                       image: DecorationImage(
-                          image: NetworkImage(newArrivalsModel?.productImage ?? "",),
+                          image: CachedNetworkImageProvider(newArrivalsModel?.productImage ?? "",),
                           fit: BoxFit.fill),
                       borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(8),

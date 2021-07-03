@@ -3,6 +3,8 @@ import 'package:audacity_task/utility/colors.dart';
 import 'package:audacity_task/utility/common_test_class.dart';
 import 'package:audacity_task/utility/default_size.dart';
 import 'package:audacity_task/utility/text_style.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ProductsUi extends StatelessWidget {
@@ -41,7 +43,7 @@ class ProductsUi extends StatelessWidget {
                         borderRadius: BorderRadius.circular(100),
                         border: Border.all(color: const Color(0x33A6A6A6)),
                         image: DecorationImage(
-                            image: NetworkImage(productsModel?.companyLogo ?? ""),
+                            image: CachedNetworkImageProvider(productsModel?.companyLogo ?? "",),
                         fit: BoxFit.fill)),
                   ),
                   SizedBox(
@@ -92,7 +94,11 @@ class ProductsUi extends StatelessWidget {
               width: appSize.width,
               alignment: Alignment.center,
               margin: EdgeInsets.symmetric( vertical: 4, horizontal: 4),
-              child: Image.network(productsModel?.storyImage ?? ""),
+              child: CachedNetworkImage(
+                imageUrl: productsModel?.storyImage ?? "",
+                placeholder: (context, url) => CupertinoActivityIndicator(),
+                errorWidget: (context, url, error) => Icon(Icons.error),
+              ),
 
             ),
             Container(

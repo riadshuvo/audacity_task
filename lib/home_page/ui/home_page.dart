@@ -10,6 +10,7 @@ import 'package:audacity_task/home_page/ui/widgets/trending_sellers/trensing_sel
 import 'package:audacity_task/utility/colors.dart';
 import 'package:audacity_task/utility/common_test_class.dart';
 import 'package:audacity_task/utility/default_size.dart';
+import 'package:audacity_task/utility/shimmer_effect.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -33,7 +34,8 @@ class _MyHomePageState extends State<MyHomePage> {
             if (state is HomeBlocLoading) {
               return Container(
                 child: Center(
-                  child: CupertinoActivityIndicator(),
+                  //child: CupertinoActivityIndicator(),
+                  child: ShimmerWidget(),
                 ),
               );
             }

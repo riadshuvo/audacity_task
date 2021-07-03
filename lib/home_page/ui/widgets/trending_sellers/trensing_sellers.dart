@@ -1,6 +1,7 @@
 import 'package:audacity_task/home_page/model/trending_seller_model.dart';
 import 'package:audacity_task/utility/colors.dart';
 import 'package:audacity_task/utility/common_test_class.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +21,7 @@ class TrendingSellers extends StatelessWidget {
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8),
                 image: DecorationImage(
-                    image: NetworkImage(trendingSellerModel?.sellerItemPhoto ?? ""),
+                    image: CachedNetworkImageProvider(trendingSellerModel?.sellerItemPhoto ?? ""),
                     fit: BoxFit.cover)
             ),
           ),
@@ -33,7 +34,7 @@ class TrendingSellers extends StatelessWidget {
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                   image: DecorationImage(
-                      image: NetworkImage(trendingSellerModel?.sellerProfilePhoto ?? ""))
+                      image: CachedNetworkImageProvider(trendingSellerModel?.sellerProfilePhoto ?? ""))
               ),
             ),
           ),
