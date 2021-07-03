@@ -1,9 +1,13 @@
+import 'package:audacity_task/home_page/model/products_model.dart';
 import 'package:audacity_task/utility/colors.dart';
 import 'package:audacity_task/utility/common_test_class.dart';
+import 'package:audacity_task/utility/default_size.dart';
 import 'package:audacity_task/utility/text_style.dart';
 import 'package:flutter/material.dart';
 
 class ProductsUi extends StatelessWidget {
+  final ProductsModel? productsModel;
+  ProductsUi({this.productsModel});
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +41,8 @@ class ProductsUi extends StatelessWidget {
                         borderRadius: BorderRadius.circular(100),
                         border: Border.all(color: const Color(0x33A6A6A6)),
                         image: DecorationImage(
-                            image: NetworkImage("https://static.vecteezy.com/system/resources/thumbnails/000/550/731/small/user_icon_004.jpg"))),
+                            image: NetworkImage(productsModel?.companyLogo ?? ""),
+                        fit: BoxFit.fill)),
                   ),
                   SizedBox(
                     width: 10,
@@ -51,7 +56,7 @@ class ProductsUi extends StatelessWidget {
                         Container(
                           alignment: Alignment.topLeft,
                           child: Text(
-                            "shopper Name",
+                            productsModel?.companyName ?? "",
                             style: commonPoppinsTextStyle(
                                 color: blackColor,
                                 fontWeight: FontWeight.w600),
@@ -59,7 +64,7 @@ class ProductsUi extends StatelessWidget {
                         ),
                         Container(
                           child: Text(
-                            "post time ago",
+                            productsModel?.friendlyTimeDiff ?? "",
                             style: commonPoppinsTextStyle(
                                 color: timeAgoTextColor,
                                 fontWeight: FontWeight.w400),
@@ -75,7 +80,7 @@ class ProductsUi extends StatelessWidget {
             Container(
               margin: EdgeInsets.only( left: 40,),
               child: CommonTextClass(
-                text: "home products statue",
+                text: productsModel?.story ?? "",
                 fontWeight: FontWeight.w400,
                 fontSize: 13,
                 color: blackColor,
@@ -84,8 +89,10 @@ class ProductsUi extends StatelessWidget {
             ),
             SizedBox(height: 8,),
             Container(
+              width: appSize.width,
+              alignment: Alignment.center,
               margin: EdgeInsets.symmetric( vertical: 4, horizontal: 4),
-              child: Image.network("https://images.unsplash.com/photo-1546587348-d12660c30c50?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fG5hdHVyYWx8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80"),
+              child: Image.network(productsModel?.storyImage ?? ""),
 
             ),
             Container(
@@ -104,7 +111,7 @@ class ProductsUi extends StatelessWidget {
                       ),
                       Container(
                         margin: EdgeInsets.only(left: 4),
-                       child: Text("MYR 9.00",
+                       child: Text("BDT ${productsModel?.unitPrice}",
                        style: commonPoppinsTextStyle(
                          fontWeight: FontWeight.w700,
                          size: 12
@@ -122,7 +129,7 @@ class ProductsUi extends StatelessWidget {
                       ),
                       Container(
                         margin: EdgeInsets.only(left: 4),
-                       child: Text("20 Available Stock",
+                       child: Text("${productsModel?.availableStock} Available Stock",
                        style: commonPoppinsTextStyle(
                          fontWeight: FontWeight.w700,
                          size: 12
@@ -140,7 +147,7 @@ class ProductsUi extends StatelessWidget {
                       ),
                       Container(
                         margin: EdgeInsets.only(left: 4),
-                       child: Text("1 Order(s)",
+                       child: Text("${productsModel?.orderQty} Order(s)",
                        style: commonPoppinsTextStyle(
                          fontWeight: FontWeight.w700,
                          size: 12
