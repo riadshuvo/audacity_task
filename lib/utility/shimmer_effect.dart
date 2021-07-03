@@ -1,4 +1,5 @@
 
+import 'package:audacity_task/utility/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 
@@ -23,8 +24,8 @@ class _ShimmerWidgetState extends State {
           padding: EdgeInsets.all(25.0),
           child: Center(
             child: Shimmer.fromColors(
-              baseColor: Colors.grey.withOpacity(0.7),
-              highlightColor: Colors.grey.withOpacity(0.1),
+              baseColor: greyColor,
+              highlightColor: lightGreyColor,
                 direction: ShimmerDirection.ltr,
                 period: Duration(seconds: 5),
                 child: Column(

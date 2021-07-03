@@ -101,8 +101,8 @@ class ProductsUi extends StatelessWidget {
                   width: appSize.width,
                   height: 100.0,
                   child: Shimmer.fromColors(
-                    baseColor: Colors.grey.withOpacity(0.7),
-                    highlightColor: Colors.grey.withOpacity(0.1),
+                    baseColor: greyColor,
+                    highlightColor: lightGreyColor,
                     child: Text(''),
                   ),
                 ),
