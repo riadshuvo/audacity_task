@@ -7,3 +7,5 @@ Color whiteColor = HexColor('#ffffff');
 Color trendingTitleColor = HexColor('#737373');
 
 Color blackColor = HexColor('#000000');
+
+Color timeAgoTextColor = HexColor('#565656');
